@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TouchableOpacity, Image, Button } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Button, TextInput } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
 import * as Facebook from 'expo-facebook';
@@ -70,6 +70,7 @@ export default function App() {
   }  
 
   return (
+    
 
     <View style={styles.container}>
       {user && <ShowUserInfo />}
@@ -77,6 +78,10 @@ export default function App() {
           <>
           <Text style={{fontSize: 35, fontWeight: 'bold'}}>Welcome</Text>
           <Text style={{fontSize: 25, fontWeight: 'bold', marginBottom: 20, color: 'gray'}}>Please login</Text>
+          <Text>Email</Text>
+          <TextInput style={styles.input_cont} placeholder='Votre email'/>
+          <Text>Mot de passe</Text>
+          <TextInput style={styles.input_cont} placeholder='Votre mdp'/>
         <TouchableOpacity
           disabled={!request}
           onPress={() => {
@@ -105,5 +110,11 @@ const styles = StyleSheet.create({
     paddingHorizontal:10,
     borderRadius:20,
 
+  },
+  input_cont:{
+    borderWidth: 1,
+    borderColor: 'red',
+    paddingHorizontal: 60,
+    paddingVertical:5,
   }
 })
